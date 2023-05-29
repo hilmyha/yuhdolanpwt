@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\DestinasiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// register
+Route::post('/register', [AuthController::class, 'register']);
+// login
+Route::post('/login', [AuthController::class, 'login']);
+// logout
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+
+Route::middleware('auth:sanctum')->group(function () {
+    // Rute-rute yang memerlukan otentikasi
+    Route::apiResource('/destinasi', DestinasiController::class);
+});
+

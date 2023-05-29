@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Jakarta',
 
     /*
     |--------------------------------------------------------------------------
@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        App\Providers\FortifyServiceProvider::class,
 
         /*
          * Application Service Providers...
