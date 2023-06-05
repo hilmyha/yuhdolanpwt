@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Destinasi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DestinasiController extends Controller
 {
@@ -27,20 +27,19 @@ class DestinasiController extends Controller
     public function store(Request $request)
     {
         // route via api route
-        $request->validate([
+        $destinasi = $request->validate([
             'nama' => 'required|string',
             'lokasi' => 'required|string',
             'harga' => 'required|integer',
+            'excerpt' => 'required|string',
             'deskripsi' => 'required|string',
         ]);
 
-        $destinasi = Destinasi::create([
-            'nama' => $request->nama,
-            'slug' => Str::slug($request->nama),
-            'lokasi' => $request->lokasi,
-            'harga' => $request->harga,
-            'deskripsi' => $request->deskripsi,
-        ]);
+        $destinasi['slug'] = SlugService::createSlug(Destinasi::class, 'slug', $request->nama);
+
+        $destinasi['user_id'] = auth()->user()->id;
+
+        Destinasi::create($destinasi);
 
         return response()->json([
             'message' => 'Destinasi berhasil ditambahkan',
@@ -66,20 +65,19 @@ class DestinasiController extends Controller
     public function update(Request $request, Destinasi $destinasi)
     {
         // route via api route
-        $request->validate([
+        $destinasiUpdate = $request->validate([
             'nama' => 'required|string',
             'lokasi' => 'required|string',
             'harga' => 'required|integer',
+            'excerpt' => 'required|string',
             'deskripsi' => 'required|string',
         ]);  
 
-        $destinasi->update([
-            'nama' => $request->nama,
-            'slug' => Str::slug($request->nama),
-            'lokasi' => $request->lokasi,
-            'harga' => $request->harga,
-            'deskripsi' => $request->deskripsi,
-        ]);
+        $destinasiUpdate['slug'] = SlugService::createSlug(Destinasi::class, 'slug', $request->nama);
+        // user_id
+        $destinasiUpdate['user_id'] = auth()->user()->id;
+
+        $destinasi->update($destinasiUpdate);
 
         return response()->json([
             'message' => 'Destinasi berhasil diupdate',

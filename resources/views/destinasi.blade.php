@@ -1,25 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="h-screen grid place-items-center overflow-hidden">
-            <img class="brightness-50 w-full h-full object-cover" src="{{ asset('img/hero_2.jpg') }}" alt="hero image">
+        <div class="h-[500px] bg-slate-700 grid place-items-center overflow-hidden">
             <div class="container absolute flex flex-col h-full justify-between py-6">
-                <div class="w-full">
-                
-                </div>
+                <div class="w-full"></div>
                 <div class="w-full lg:w-1/2">
-                    <a href="#" class="hidden lg:inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-red-700 bg-red-50 rounded-full hover:bg-red-100">
-                        <span class="text-xs bg-red-600 rounded-full text-white px-4 py-1.5 mr-3">New</span> <span class="text-sm font-medium">Jumbotron component was launched! See what's new</span> 
-                        <svg aria-hidden="true" class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                    </a>
-                    <h1 class="font-extrabold tracking-tight leading-none text-4xl md:text-6xl text-white mb-8">It is Better to Travel Well Than to Arrive</h1>
-                    <span class="text-white text-lg font-normal hidden lg:block">YuhDolan hadir bukan hanya sebagai media informasi akan destinasi wisata, YuhDolan juga merupakan suatu platform yang menyediakan jasa tour guide dengan harapan dapat saling menguntungkan pihak yang relevan satu sama lain.</span>
+                    <h1 class="font-playfair font-extrabold tracking-tight leading-none text-3xl md:text-6xl text-white mb-8">Destinasi Terbaru</h1>
                 </div>
                 <div class="w-full flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" text-white w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                    </svg>                      
-                    <span class="text-white text-sm font-normal">Yogyakarta, Indonesia</span>
+                    
                 </div>
             </div>
         </div>
@@ -27,13 +15,12 @@
     
     <div class="py-12">
         <div class="container flex flex-col gap-8">
-
             
             @if ($destinasi->count())
                 <h2>Destinasi</h2>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                    @foreach ($destinasi->take(3) as $destinasi)
+                    @foreach ($destinasi as $destinasi)
                     <a class="shadow-lg hover:shadow-2xl transition duration-200 group" href="/destinasi/{{ $destinasi->slug }}">
                         <div class="w-full">
                             <div class="w-full h-[300px] overflow-hidden">

@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('lokasi');
             $table->integer('harga');
+            $table->string('excerpt');
             $table->text('deskripsi');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

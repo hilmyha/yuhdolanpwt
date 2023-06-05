@@ -14,16 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        'destinasi' => \App\Models\Destinasi::latest()->get()
+    ]);
 })->name('home');
 
 // destinasi
-Route::get('/destinasi', function () {
-    return view('destinasi');
-})->name('destinasi');
+Route::get('/destinasi', [App\Http\Controllers\DestinasiController::class, 'index'])->name('destinasi');
+Route::get('/destinasi/{destinasi:slug}', [App\Http\Controllers\DestinasiController::class, 'show'])->name('destinasi-show');
 
 // dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    // check slug
+    Route::get('/dashboard/destinasi/checkSlug', [App\Http\Controllers\Admin\DestinasiController::class, 'checkSlug']);
+    Route::resource('/dashboard/destinasi', App\Http\Controllers\Admin\DestinasiController::class);
+
+    
+});
 

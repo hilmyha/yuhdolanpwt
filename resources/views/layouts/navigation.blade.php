@@ -1,7 +1,7 @@
 <nav class="navbar border-gray-200 fixed w-full z-20 top-0 left-0 shadow-lg">
     <div class="container flex flex-wrap items-center justify-between">
         <a href="{{ route('home') }}" class="flex items-center">
-            <span class="self-center text-3xl font-playfair font-bold whitespace-nowrap">YuhDolan</span>
+            <span class="self-center text-3xl font-extrabold whitespace-nowrap">YuhDolan</span>
         </a>
         <div class="flex items-center lg:order-2">
             @if (Route::has('login'))
@@ -30,10 +30,10 @@
                     </x-nav-link>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 text-gray-700 border-b text-center lg:text-start border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary">About</a>
+                    <a href="#" class="block py-2 text-gray-700 border-b text-center lg:text-start border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary">Blogs</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 text-gray-700 border-b text-center lg:text-start border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary">Contact</a>
+                    <a href="#" class="block py-2 text-gray-700 border-b text-center lg:text-start border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary">About</a>
                 </li>
             </ul>
         </div>

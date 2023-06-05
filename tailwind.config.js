@@ -11,13 +11,10 @@ export default {
             center: true,
             padding: '1rem',
         },
-        colors: {
-            primary: "#E33F20",
-            secondary: "#CC2C0E",
-        },
         extend: {
-            fontFamily: {
-                playfair: ["Playfair Display", "serif"],
+            colors: {
+                primary: "#E33F20",
+                secondary: "#CC2C0E",
             },
         },
     },

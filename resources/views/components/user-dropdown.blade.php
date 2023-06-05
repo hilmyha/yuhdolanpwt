@@ -13,12 +13,6 @@
         <li>
             <a href="{{ route('dashboard') }}" class="block py-2 px-4 text-sm text-gray-500 hover:bg-gray-100">Dashboard</a>
         </li>
-        <li>
-            <a href="#" class="block py-2 px-4 text-sm text-gray-500 hover:bg-gray-100">My profile</a>
-        </li>
-        <li>
-            <a href="#" class="block py-2 px-4 text-sm text-gray-500 hover:bg-gray-100">Account settings</a>
-        </li>
     </ul>
     <ul class="py-1 font-light text-gray-500" aria-labelledby="dropdown">
         <form class="hover:bg-gray-100" action="{{ route('logout') }}" method="POST">

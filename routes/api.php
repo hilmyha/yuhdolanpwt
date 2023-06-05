@@ -27,8 +27,10 @@ Route::post('/login', [AuthController::class, 'login']);
 // logout
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
-Route::middleware('auth:sanctum')->group(function () {
-    // Rute-rute yang memerlukan otentikasi
-    Route::apiResource('/destinasi', DestinasiController::class);
-});
+// Route::middleware('auth:sanctum')->group(function () {
+//     // Rute-rute yang memerlukan otentikasi
+//     Route::apiResource('/destinasi', DestinasiController::class);
+// });
+
+Route::apiResource('/destinasi', DestinasiController::class);
 

@@ -13,3 +13,12 @@ $(window).scroll(function () {
     }
 });
 
+    const nama = document.querySelector('#nama')
+    const slug = document.querySelector('#slug')
+
+    nama.addEventListener('change', function() {
+        fetch('/dashboard/destinasi/checkSlug?nama=' + nama.value)
+            .then(response => response.json())
+            .then(data => slug.value = data.slug)
+    })
+
