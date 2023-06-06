@@ -64,7 +64,10 @@ class DestinasiController extends Controller
      */
     public function edit(Destinasi $destinasi)
     {
-        //
+        return view('destinasi.edit', [
+            'destinasi' => $destinasi,
+            'user' => \App\Models\User::all(),
+        ]);
     }
 
     /**
@@ -72,7 +75,25 @@ class DestinasiController extends Controller
      */
     public function update(Request $request, Destinasi $destinasi)
     {
-        //
+        $rules = [
+            'nama' => 'required|string',
+            'lokasi' => 'required|string',
+            'harga' => 'required|integer',
+            'excerpt' => 'required|string',
+            'deskripsi' => 'required|string',
+        ];
+
+        if ($request->slug != $destinasi->slug) {
+            $rules['slug'] = 'required|string|unique:destinasis';
+        }
+
+        $updateDestinasi = $request->validate($rules);
+
+        $updateDestinasi['user_id'] = auth()->user()->id;
+
+        $destinasi->update($updateDestinasi);
+
+        return redirect('/dashboard/destinasi')->with('success', 'Destinasi berhasil diupdate');
     }
 
     /**
@@ -80,7 +101,9 @@ class DestinasiController extends Controller
      */
     public function destroy(Destinasi $destinasi)
     {
-        //
+        Destinasi::destroy($destinasi->id);
+
+        return redirect('/dashboard/destinasi')->with('success', 'Destinasi berhasil dihapus');
     }
 
     // check slug with slugable package

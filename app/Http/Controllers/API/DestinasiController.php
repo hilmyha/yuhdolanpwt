@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Destinasi;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Str;
 
 class DestinasiController extends Controller
 {
@@ -64,20 +65,19 @@ class DestinasiController extends Controller
      */
     public function update(Request $request, Destinasi $destinasi)
     {
-        // route via api route
-        $destinasiUpdate = $request->validate([
-            'nama' => 'required|string',
-            'lokasi' => 'required|string',
-            'harga' => 'required|integer',
-            'excerpt' => 'required|string',
-            'deskripsi' => 'required|string',
-        ]);  
+        $validatedData = $request->validate([
+            'nama' => 'string',
+            'lokasi' => 'string',
+            'harga' => 'integer',
+            'excerpt' => 'string',
+            'deskripsi' => 'string',
+        ]);
 
-        $destinasiUpdate['slug'] = SlugService::createSlug(Destinasi::class, 'slug', $request->nama);
-        // user_id
-        $destinasiUpdate['user_id'] = auth()->user()->id;
+        $validatedData['slug'] = SlugService::createSlug(Destinasi::class, 'slug', $request->nama);
 
-        $destinasi->update($destinasiUpdate);
+        $validatedData['user_id'] = auth()->user()->id;
+
+        $destinasi->update($validatedData);
 
         return response()->json([
             'message' => 'Destinasi berhasil diupdate',

@@ -20,17 +20,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// register
+// auth routes
 Route::post('/register', [AuthController::class, 'register']);
-// login
 Route::post('/login', [AuthController::class, 'login']);
-// logout
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
-// Route::middleware('auth:sanctum')->group(function () {
-//     // Rute-rute yang memerlukan otentikasi
-//     Route::apiResource('/destinasi', DestinasiController::class);
-// });
+// public routes
+Route::apiResource('destinasi', DestinasiController::class)->only('index', 'show');
 
-Route::apiResource('/destinasi', DestinasiController::class);
-
+// protected routes
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::apiResource('destinasi', DestinasiController::class)->except('index', 'show');
+});

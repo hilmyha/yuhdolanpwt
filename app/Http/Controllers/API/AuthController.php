@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class AuthController extends Controller
      */
 
     // register
-    public function register(Request $request)
+    public function register(Request $request, CreateNewUser $createNewUser)
     {
         $request->validate([
             'username' => 'required|string|unique:users',
@@ -26,12 +27,14 @@ class AuthController extends Controller
             'password' => ['required', 'confirmed', new Password],
         ]);
 
-        $user = User::create([
-            'username' => $request->username,
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        // $user = User::create([
+        //     'username' => $request->username,
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        // ]);
+
+        $user = $createNewUser->create($request->all());
 
         $token = $user->createToken('api-token')->plainTextToken;
 

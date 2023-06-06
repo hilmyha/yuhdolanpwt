@@ -3,38 +3,39 @@
     <div class="p-4 sm:ml-64 mt-14 lg:mt-12">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
             <div class="mb-4 p-6 overflow-hidden rounded bg-white">
-                <form action="/dashboard/destinasi" method="post" enctype="multipart/form-data">
+                <form action="/dashboard/destinasi/{{ $destinasi->id }}" method="post" enctype="multipart/form-data">
+                    @method('PUT')
                     @csrf
                         <div class="grid gap-4">
                             <div class="w-full">
                                 <x-input-label for="nama" value="Destinasi Name" />
-                                <x-text-input id="nama" name="nama" type="text" value="{{ old('nama') }}" placeholder="Destinasi name" />
+                                <x-text-input id="nama" name="nama" type="text" value="{{ old('nama', $destinasi->nama) }}" placeholder="Destinasi name" />
                                 <x-input-error :messages="$errors->get('nama')" class="mt-2" />
                             </div>
                             <div class="w-full">
                                 <x-input-label for="slug" value="Slug" />
-                                <x-text-input id="slug" name="slug" type="text" value="{{ old('slug') }}" placeholder="Slug" readonly/>
+                                <x-text-input id="slug" name="slug" type="text" value="{{ old('slug', $destinasi->slug) }}" placeholder="Slug" readonly/>
                                 <x-input-error :messages="$errors->get('slug')" class="mt-2" />
                             </div>
                             <div class="lg:col-span-2">
                                 <x-input-label for="excerpt" value="Excerpt" />
-                                <x-text-input id="excerpt" name="excerpt" type="text" value="{{ old('excerpt') }}" placeholder="Excerpt" />
+                                <x-text-input id="excerpt" name="excerpt" type="text" value="{{ old('excerpt', $destinasi->excerpt) }}" placeholder="Excerpt" />
                                 <x-input-error :messages="$errors->get('excerpt')" class="mt-2" />
                             </div>
                             <div class="w-full">
                                 <x-input-label for="lokasi" value="Lokasi" />
-                                <x-text-input id="lokasi" name="lokasi" type="text" value="{{ old('lokasi') }}" placeholder="Lokasi" />
+                                <x-text-input id="lokasi" name="lokasi" type="text" value="{{ old('lokasi', $destinasi->lokasi) }}" placeholder="Lokasi" />
                                 <x-input-error :messages="$errors->get('lokasi')" class="mt-2" />
                             </div>
                             <div class="w-full">
                                 <x-input-label for="harga" value="Harga" />
-                                <x-text-input id="harga" name="harga" type="text" value="{{ old('harga') }}" placeholder="Harga" />
+                                <x-text-input id="harga" name="harga" type="text" value="{{ old('harga', $destinasi->harga) }}" placeholder="Harga" />
                                 <x-input-error :messages="$errors->get('harga')" class="mt-2" />
                             </div>
                             
                             <div class="lg:col-span-2">
                                 <x-input-label for="deskripsi" value="Description" />
-                                <input id="deskripsi" type="hidden" name="deskripsi" value="{{ old('deskripsi') }}">
+                                <input id="deskripsi" type="hidden" name="deskripsi" value="{{ old('deskripsi', $destinasi->deskripsi) }}">
                                 <trix-editor input="deskripsi"></trix-editor>
                                 <x-input-error :messages="$errors->get('deskripsi')" class="mt-2" />
                             </div>
