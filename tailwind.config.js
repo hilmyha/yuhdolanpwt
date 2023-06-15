@@ -16,6 +16,9 @@ export default {
                 primary: "#E33F20",
                 secondary: "#CC2C0E",
             },
+            fontFamily: {
+                futura: ["Futura", "sans-serif"],
+            }
         },
     },
     plugins: [

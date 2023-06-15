@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="h-[500px] bg-slate-700 grid place-items-center overflow-hidden">
-            <div class="container absolute flex flex-col h-full justify-between py-6">
+            <div class="container absolute flex flex-col justify-between py-6">
                 <div class="w-full"></div>
                 <div class="w-full lg:w-1/2">
                     <h1 class="font-playfair font-extrabold tracking-tight leading-none text-3xl md:text-6xl text-white mb-8">Destinasi Terbaru</h1>
@@ -17,14 +17,12 @@
         <div class="container flex flex-col gap-8">
             
             @if ($destinasi->count())
-                <h2>Destinasi</h2>
-
                 <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                     @foreach ($destinasi as $destinasi)
-                    <a class="shadow-lg hover:shadow-2xl transition duration-200 group" href="/destinasi/{{ $destinasi->slug }}">
+                    <a class="shadow-lg bg-white hover:shadow-2xl transition duration-200 group" href="/destinasi/{{ $destinasi->slug }}">
                         <div class="w-full">
                             <div class="w-full h-[300px] overflow-hidden">
-                                <img class="brightness-50 w-full h-full object-cover group-hover:scale-125 transition duration-200" src="{{ asset('img/hero_2.jpg') }}" alt="">
+                                <img class="brightness-50 w-full h-full object-cover group-hover:scale-125 group-hover:blur-sm transition duration-200" src="{{ asset('img/hero_2.jpg') }}" alt="">
                             </div>
                             <div class="p-4">
                                 <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">Category</span>

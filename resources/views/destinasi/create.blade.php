@@ -13,7 +13,7 @@
                             </div>
                             <div class="w-full">
                                 <x-input-label for="slug" value="Slug" />
-                                <x-text-input id="slug" name="slug" type="text" value="{{ old('slug') }}" placeholder="Slug" readonly/>
+                                <x-text-input id="slug" name="slug" type="text" value="{{ old('slug') }}" placeholder="Slug"/>
                                 <x-input-error :messages="$errors->get('slug')" class="mt-2" />
                             </div>
                             <div class="lg:col-span-2">

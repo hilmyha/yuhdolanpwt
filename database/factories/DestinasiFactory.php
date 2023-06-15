@@ -22,7 +22,7 @@ class DestinasiFactory extends Factory
             'lokasi' => $this->faker->address,
             'harga' => $this->faker->numberBetween(100000, 1000000),
             'excerpt' => $this->faker->paragraph(1),
-            'deskripsi' => $this->faker->paragraph(1, 5), // 'This is a sentence.
+            'deskripsi' => $this->faker->paragraphs(5, true), // 'This is a sentence.
             'user_id' => $this->faker->numberBetween(1),
         ];
     }

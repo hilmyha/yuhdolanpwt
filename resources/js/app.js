@@ -1,5 +1,6 @@
 import "./bootstrap";
 import "flowbite";
+import Datepicker from 'flowbite-datepicker/Datepicker';
 import "../../node_modules/jquery/dist/jquery";
 
 // navbar scroll effect
@@ -13,12 +14,17 @@ $(window).scroll(function () {
     }
 });
 
-    const nama = document.querySelector('#nama')
-    const slug = document.querySelector('#slug')
+// const datepickerEl = document.getElementById('datepickerBooking');
+// new Datepicker(datepickerEl, {
+    
+// }); 
 
-    nama.addEventListener('change', function() {
-        fetch('/dashboard/destinasi/checkSlug?nama=' + nama.value)
-            .then(response => response.json())
-            .then(data => slug.value = data.slug)
-    })
+const nama = document.querySelector('#nama')
+const slug = document.querySelector('#slug')
+
+nama.addEventListener('change', function() {
+    fetch('/dashboard/destinasi/checkSlug?nama=' + nama.value)
+        .then(response => response.json())
+        .then(data => slug.value = data.slug)
+})
 
