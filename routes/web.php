@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // check slug
     Route::get('/dashboard/destinasi/checkSlug', [App\Http\Controllers\Admin\DestinasiController::class, 'checkSlug']);
-    Route::resource('/dashboard/destinasi', App\Http\Controllers\Admin\DestinasiController::class);
+    Route::resource('/dashboard/destinasi', App\Http\Controllers\Admin\DestinasiController::class)->middleware('admin');
 
     
 });

@@ -19,6 +19,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Hilmy Ahmad Haidar',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin123'),
+            'is_admin' => 1,
+        ]);
+
+        \App\Models\User::factory()->create([
+            'username' => 'azzah',
+            'name' => 'Azzah Fathimah',
+            'email' => 'azzah@admin.com',
+            'password' => bcrypt('admin123'),
         ]);
 
         \App\Models\Destinasi::factory(10)->create();

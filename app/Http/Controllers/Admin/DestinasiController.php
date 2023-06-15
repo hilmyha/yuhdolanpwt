@@ -14,6 +14,7 @@ class DestinasiController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin');
         // show all destinasi
         return view('destinasi.index', [
             'destinasis' => Destinasi::with('user')->latest()->paginate(5),
