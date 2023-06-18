@@ -22,11 +22,20 @@ class DatabaseSeeder extends Seeder
             'is_admin' => 1,
         ]);
 
-        \App\Models\User::factory()->create([
-            'username' => 'azzah',
-            'name' => 'Azzah Fathimah',
-            'email' => 'azzah@admin.com',
-            'password' => bcrypt('admin123'),
+        // \App\Models\User::factory()->create([
+        //     'username' => 'azzah',
+        //     'name' => 'Azzah Fathimah',
+        //     'email' => 'azzah@admin.com',
+        //     'password' => bcrypt('admin123'),
+        // ]);
+
+        \App\Models\Category::create([
+            'nama' => 'Wisata Kuliner',
+            'user_id' => 1,
+        ]);
+        \App\Models\Category::create([
+            'nama' => 'Alam',
+            'user_id' => 1,
         ]);
 
         \App\Models\Destinasi::factory(10)->create();

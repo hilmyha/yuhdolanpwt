@@ -28,6 +28,19 @@
                                 <x-input-error :messages="$errors->get('lokasi')" class="mt-2" />
                             </div>
                             <div class="w-full">
+                                <x-input-label for="category" value="Category" />
+                                <select name="category_id" id="category" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                    @foreach ($categories as $category)
+                                        @if (old('category_id', $destinasi->category_id) == $category->id)
+                                            <option value="{{ $category->id }}" selected>{{ $category->nama }}</option>
+                                        @else
+                                            <option value="{{ $category->id }}">{{ $category->nama }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                <x-input-error :messages="$errors->get('category')" class="mt-2" />
+                            </div>
+                            <div class="lg:col-span-2">
                                 <x-input-label for="harga" value="Harga" />
                                 <x-text-input id="harga" name="harga" type="text" value="{{ old('harga', $destinasi->harga) }}" placeholder="Harga" />
                                 <x-input-error :messages="$errors->get('harga')" class="mt-2" />

@@ -18,7 +18,8 @@ class DestinasiController extends Controller
         // show all destinasi
         return response()->json([
             'message' => 'Destinasi berhasil ditampilkan',
-            'data' => Destinasi::all(),
+            // data destinasi dengan category nama
+            'data' => Destinasi::with('category:id,nama')->get(),
         ], 200);
     }
 
@@ -30,6 +31,7 @@ class DestinasiController extends Controller
         // route via api route
         $destinasi = $request->validate([
             'nama' => 'required|string',
+            'category_id' => 'required|integer',
             'lokasi' => 'required|string',
             'harga' => 'required|integer',
             'excerpt' => 'required|string',
@@ -67,6 +69,7 @@ class DestinasiController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'string',
+            'category_id' => 'integer',
             'lokasi' => 'string',
             'harga' => 'integer',
             'excerpt' => 'string',

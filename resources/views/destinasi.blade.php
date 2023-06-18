@@ -25,7 +25,7 @@
                                 <img class="brightness-50 w-full h-full object-cover group-hover:scale-125 group-hover:blur-sm transition duration-200" src="{{ asset('img/hero_2.jpg') }}" alt="">
                             </div>
                             <div class="p-4">
-                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">Category</span>
+                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">{{ $destinasi->category->nama }}</span>
                                 <h4 class="mt-3 text-xl lg:text-2xl font-bold group-hover:text-primary transition duration-200">{{ $destinasi->nama }}</h4>
                                 <div class="flex items-center mt-4 text-sm text-slate-400">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">

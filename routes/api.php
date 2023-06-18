@@ -29,6 +29,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::apiResource('destinasi', DestinasiController::class)->only('index', 'show');
 
 // protected routes
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::apiResource('destinasi', DestinasiController::class)->except('index', 'show');
 });

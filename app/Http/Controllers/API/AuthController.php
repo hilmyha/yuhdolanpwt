@@ -42,10 +42,7 @@ class AuthController extends Controller
             [
                 'status' => true,
                 'message' => 'Register berhasil',
-                'data' => [
-                    'user' => $user,
-                    'token' => $token,
-                ]
+                'token' => $token,
             ],
             201
         );
@@ -68,10 +65,7 @@ class AuthController extends Controller
                 [
                     'status' => true,
                     'message' => 'Login berhasil',
-                    'data' => [
-                        'user' => $user,
-                        'token' => $token,
-                    ],
+                    'token' => $token,
                 ],
                 200
             );
@@ -80,7 +74,7 @@ class AuthController extends Controller
                 [
                     'status' => false,
                     'message' => 'Login gagal',
-                    'data' => null,
+                    'token' => null,
                 ],
                 401
             );
@@ -100,7 +94,7 @@ class AuthController extends Controller
             [
                 'status' => true,
                 'message' => 'Logout berhasil',
-                'data' => null,
+                'token' => null,
             ],
             200
         );

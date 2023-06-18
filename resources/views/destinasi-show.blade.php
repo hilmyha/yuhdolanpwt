@@ -5,6 +5,7 @@
                 <div class="w-full"></div>
                 <div class="w-full lg:w-1/2">
                     <h1 class="font-playfair font-extrabold tracking-tight leading-none text-3xl md:text-6xl text-white mb-8">{{ $destinasi->nama }}</h1>
+                    <h4 class="font-playfair font-bold tracking-tight leading-none text-xl text-white mb-8">{{ $destinasi->category->nama }}</h4>
                 </div>
                 <div class="w-full flex items-center gap-2">
                     
@@ -22,7 +23,6 @@
                 
                 <p class="border-l-2 border-slate-400 ml-2 pl-2">{{ $destinasi->lokasi }}</p>
             </div>
-            <p class="text-justify">{!! $destinasi->deskripsi !!}</p>
             <p class="text-justify">{!! $destinasi->deskripsi !!}</p>
             <p>maps</p>
         </div>

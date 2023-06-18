@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/destinasi/checkSlug', [App\Http\Controllers\Admin\DestinasiController::class, 'checkSlug']);
     Route::resource('/dashboard/destinasi', App\Http\Controllers\Admin\DestinasiController::class)->middleware('admin');
 
+    // category
+    Route::resource('/dashboard/category', App\Http\Controllers\Admin\CategoryController::class)->middleware('admin');
     
 });
 

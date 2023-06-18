@@ -27,7 +27,9 @@ class DestinasiController extends Controller
     public function create()
     {
         // show create form
-        return view('destinasi.create');
+        return view('destinasi.create',[
+            'categories' => \App\Models\Category::all(),
+        ]);
     }
 
     /**
@@ -38,6 +40,7 @@ class DestinasiController extends Controller
         // route
         $destinasi = $request->validate([
             'nama' => 'required|string',
+            'category_id' => 'required',
             'slug' => 'required|string|unique:destinasis',
             'lokasi' => 'required|string',
             'harga' => 'required|integer',
@@ -68,6 +71,7 @@ class DestinasiController extends Controller
         return view('destinasi.edit', [
             'destinasi' => $destinasi,
             'user' => \App\Models\User::all(),
+            'categories' => \App\Models\Category::all(),
         ]);
     }
 
@@ -78,6 +82,7 @@ class DestinasiController extends Controller
     {
         $rules = [
             'nama' => 'required|string',
+            'category_id' => 'required',
             'lokasi' => 'required|string',
             'harga' => 'required|integer',
             'excerpt' => 'required|string',
