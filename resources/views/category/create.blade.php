@@ -1,6 +1,6 @@
 <x-dash-layout>
 
-    <div class="p-4 sm:ml-64 mt-14 lg:mt-12">
+    <div class="p-4 lg:ml-64 mt-14 lg:mt-12">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
             <div class="mb-4 p-6 overflow-hidden rounded bg-white">
                 <form action="/dashboard/category" method="post" enctype="multipart/form-data">

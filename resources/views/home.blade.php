@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="h-screen grid place-items-center overflow-hidden">
+        <div class="h-[700px] lg:h-screen grid place-items-center overflow-hidden">
             <img class="brightness-50 w-full h-full object-cover" src="{{ asset('img/hero_2.jpg') }}" alt="hero image">
             <div class="container absolute flex flex-col h-full justify-between py-6">
                 <div class="w-full">
@@ -12,7 +12,7 @@
                         <svg aria-hidden="true" class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
                     </a>
                     <h1 class="font-extrabold tracking-tight leading-none text-4xl md:text-6xl text-white mb-8">It is Better to Travel Well Than to Arrive</h1>
-                    <span class="text-white text-lg font-normal hidden lg:block">YuhDolan hadir bukan hanya sebagai media informasi akan destinasi wisata, YuhDolan juga merupakan suatu platform yang menyediakan jasa tour guide dengan harapan dapat saling menguntungkan pihak yang relevan satu sama lain.</span>
+                    <span class="text-white text-sm lg:text-lg font-normal block">YuhDolan hadir bukan hanya sebagai media informasi akan destinasi wisata, YuhDolan juga merupakan suatu platform yang menyediakan jasa tour guide dengan harapan dapat saling menguntungkan pihak yang relevan satu sama lain.</span>
                 </div>
                 <div class="w-full flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" text-white w-6 h-6">

@@ -46,6 +46,8 @@ class DestinasiController extends Controller
             'harga' => 'required|integer',
             'excerpt' => 'required|string',
             'deskripsi' => 'required|string',
+            'lat' => 'required|string',
+            'lng' => 'required|string',
         ]);
 
         $destinasi['user_id'] = auth()->user()->id;
@@ -87,6 +89,8 @@ class DestinasiController extends Controller
             'harga' => 'required|integer',
             'excerpt' => 'required|string',
             'deskripsi' => 'required|string',
+            'lat' => 'required|string',
+            'lng' => 'required|string',
         ];
 
         if ($request->slug != $destinasi->slug) {

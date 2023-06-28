@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('harga');
             $table->string('excerpt');
             $table->text('deskripsi');
+            $table->string('lat');
+            $table->string('lng');
             $table->foreignId('user_id');
             $table->foreignId('category_id');
             $table->timestamps();

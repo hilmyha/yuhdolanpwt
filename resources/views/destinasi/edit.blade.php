@@ -1,6 +1,6 @@
 <x-dash-layout>
 
-    <div class="p-4 sm:ml-64 mt-14 lg:mt-12">
+    <div class="p-4 lg:ml-64 mt-14 lg:mt-12">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
             <div class="mb-4 p-6 overflow-hidden rounded bg-white">
                 <form action="/dashboard/destinasi/{{ $destinasi->id }}" method="post" enctype="multipart/form-data">
@@ -22,10 +22,20 @@
                                 <x-text-input id="excerpt" name="excerpt" type="text" value="{{ old('excerpt', $destinasi->excerpt) }}" placeholder="Excerpt" />
                                 <x-input-error :messages="$errors->get('excerpt')" class="mt-2" />
                             </div>
-                            <div class="w-full">
+                            <div class="lg:col-span-2">
                                 <x-input-label for="lokasi" value="Lokasi" />
                                 <x-text-input id="lokasi" name="lokasi" type="text" value="{{ old('lokasi', $destinasi->lokasi) }}" placeholder="Lokasi" />
                                 <x-input-error :messages="$errors->get('lokasi')" class="mt-2" />
+                            </div>
+                            <div class="w-full">
+                                <x-input-label for="lat" value="Latitude" />
+                                <x-text-input id="lat" name="lat" type="text" value="{{ old('lat', $destinasi->lat) }}" placeholder="lat" />
+                                <x-input-error :messages="$errors->get('lat')" class="mt-2" />
+                            </div>
+                            <div class="w-full">
+                                <x-input-label for="lng" value="Longitude" />
+                                <x-text-input id="lng" name="lng" type="text" value="{{ old('lng', $destinasi->lng) }}" placeholder="lng" />
+                                <x-input-error :messages="$errors->get('lng')" class="mt-2" />
                             </div>
                             <div class="w-full">
                                 <x-input-label for="category" value="Category" />
@@ -40,7 +50,7 @@
                                 </select>
                                 <x-input-error :messages="$errors->get('category')" class="mt-2" />
                             </div>
-                            <div class="lg:col-span-2">
+                            <div class="w-full">
                                 <x-input-label for="harga" value="Harga" />
                                 <x-text-input id="harga" name="harga" type="text" value="{{ old('harga', $destinasi->harga) }}" placeholder="Harga" />
                                 <x-input-error :messages="$errors->get('harga')" class="mt-2" />

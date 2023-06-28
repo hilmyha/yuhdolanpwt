@@ -1,6 +1,6 @@
 <x-dash-layout>
 
-    <div class="p-4 sm:ml-64 mt-14 lg:mt-12">
+    <div class="p-4 lg:ml-64 mt-14 lg:mt-12">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
             @if (session()->has('success'))
                 <div id="alert-border" class="flex p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50" role="alert">

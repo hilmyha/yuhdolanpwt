@@ -1,7 +1,7 @@
 <nav class="bg-white border-gray-200 shadow-lg px-4 lg:px-6 py-2.5 fixed w-full z-50 top-0 left-0">
     <div class="flex flex-wrap justify-between items-center">
         <div class="flex justify-start items-center">
-            <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mr-4 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+            <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mr-4 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
                 <span class="sr-only">Open sidebar</span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
             </button>
@@ -25,7 +25,7 @@
     </div>
 </nav>
 
-<aside id="default-sidebar" class="fixed pt-14 lg:pt-12 top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+<aside id="default-sidebar" class="fixed pt-14 lg:pt-12 top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full lg:translate-x-0" aria-label="Sidebar">
     <div class="h-full flex justify-between flex-col px-3 py-4 overflow-y-auto pt-6 bg-white">
         <ul class="space-y-2 font-medium">
             <li>

@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
         ]);
         \App\Models\Category::create([
-            'nama' => 'Alam',
+            'nama' => 'Wisata Alam',
             'user_id' => 1,
         ]);
 
