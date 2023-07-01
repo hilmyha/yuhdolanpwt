@@ -15,15 +15,26 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+        <div class="flex min-h-screen">
+            <div class="relative hidden lg:block h-screen w-1/2 bg-black overflow-hidden">
+                <img class="w-full h-full object-cover" src="{{ asset('img/guest.png') }}" alt="hero image">
+                <div class="py-12 px-16 container absolute flex flex-col h-full z-20 top-0 justify-end">
+                    <div class="w-full flex items-center gap-2">
+                        <x-application-logo class="w-12 h-12 fill-current text-white" />
+                        <span class="text-white text-xl font-bold">Yuhdolan</span>
+                    </div>
+                </div>
+            </div>
+            <div class="h-screen w-full lg:w-1/2 bg-white flex items-center">
+                <div class="p-12 w-full lg:p-28">
+                    {{ $slot }}
+
+                    <div class="inline-flex items-center justify-center w-full">
+                        <hr class="w-64 h-px my-8 bg-gray-200 border-0">
+                        <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 lg:-translate-x-3/4 bg-white left-1/2 lg:left-3/4">or</span>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

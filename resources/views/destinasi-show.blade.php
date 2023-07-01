@@ -15,7 +15,7 @@
     </x-slot>
     
     <div class="py-12 container flex flex-col lg:flex-row gap-8">
-        <div class="flex flex-col w-full lg:w-[70%] gap-8">
+        <div class="flex flex-col w-full gap-8">
             <div class="border flex flex-col gap-3 p-6 rounded shadow-lg bg-white">
                 <div class="flex items-center mb-3 text-sm text-slate-600">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -71,35 +71,6 @@
     
                 <x-primary-button type="submit" class="mt-4 transition">Kirim Ulasan</x-primary-button>
             </div>
-
-        </div>
-
-        <div class="flex flex-col h-fit w-full lg:w-[30%] gap-8">
-            <div class="border flex flex-col p-6 bg-white shadow-lg rounded">
-                <h4 class="font-bold text-xl text-gray-500 mb-4">Booking</h4>
-    
-                <div class="w-full mt-3">
-                    <x-text-input id="nama" name="nama" type="text" value="{{ old('nama') }}" placeholder="Nama"/>
-                    <x-input-error :messages="$errors->get('nama')" class="mt-2" />
-                </div>
-                <div class="w-full mt-3">
-                    <x-text-input id="email" name="email" type="email" value="{{ old('email') }}" placeholder="Email"/>
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                </div>
-                
-                
-                <div class="relative w-full mt-3">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <input datepicker datepicker-autohide id="datepickerBooking" type="text" class="cursor-pointer border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Select Date">
-                </div>
-    
-                <x-primary-button type="submit" class="mt-4 transition">Booking</x-primary-button>
-            </div>
-            
-            
-            
 
         </div>
     </div>

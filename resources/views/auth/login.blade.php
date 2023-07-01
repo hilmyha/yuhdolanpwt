@@ -2,6 +2,11 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    <div class="mb-12">
+        <h1 class="mb-3 text-3xl font-bold">Welcome back to <span class="text-primary">Yuhdolan</span></h1>
+        <p class="text-gray-500">Silahkan login untuk melanjutkan.</p>
+    </div>
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -32,7 +37,7 @@
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex items-center justify-between mt-4">
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
                 {{ __("Don't have an account yet?") }}
             </a>
