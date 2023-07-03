@@ -1,7 +1,8 @@
 <nav class="navbar border-gray-200 fixed w-full z-20 top-0 left-0 shadow-lg">
     <div class="container flex flex-wrap items-center justify-between">
         <a href="{{ route('home') }}" class="flex items-center">
-            <span class="self-center text-3xl font-extrabold whitespace-nowrap">YuhDolan</span>
+            <img src="{{ asset('img/icov2.png') }}" alt="logo" class="w-10 h-10 mr-2">
+            <span class="self-center text-2xl font-extrabold whitespace-nowrap">YuhDolan</span>
         </a>
         <div class="flex items-center lg:order-2">
             @if (Route::has('login'))

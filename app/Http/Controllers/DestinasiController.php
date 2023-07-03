@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destinasi;
+use App\Models\Ulasan;
 use Illuminate\Http\Request;
 
 class DestinasiController extends Controller
@@ -24,7 +25,9 @@ class DestinasiController extends Controller
     {
         return view('destinasi-show', [
             'title' => 'Detail Destinasi',
-            'destinasi' => $destinasi
+            'destinasi' => $destinasi,
+            // show ulasan
+            'ulasans' => Ulasan::with('user')->where('destinasi_id', $destinasi->id)->latest()->paginate(5)
         ]);
     }
 

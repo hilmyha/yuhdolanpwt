@@ -28,13 +28,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
+    
     // check slug
     Route::get('/dashboard/destinasi/checkSlug', [App\Http\Controllers\Admin\DestinasiController::class, 'checkSlug']);
     Route::resource('/dashboard/destinasi', App\Http\Controllers\Admin\DestinasiController::class)->middleware('admin');
-
+    
     // category
     Route::resource('/dashboard/category', App\Http\Controllers\Admin\CategoryController::class)->middleware('admin');
-    
+
+    // ulasan
+    Route::post('/tambah-ulasan/{destinasi:id}', [App\Http\Controllers\Admin\UlasanController::class, 'store']);
+    Route::delete('/tambah-ulasan/{ulasan:id}', [App\Http\Controllers\Admin\UlasanController::class, 'destroy']);
 });
 
