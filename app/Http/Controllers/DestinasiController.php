@@ -14,7 +14,7 @@ class DestinasiController extends Controller
     public function index()
     {
         return view('destinasi', [
-            'destinasi' => Destinasi::latest()->get(),
+            'destinasis' => Destinasi::latest()->paginate(6),
         ]);
     }
 

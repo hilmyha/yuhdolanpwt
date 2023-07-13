@@ -30,14 +30,22 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         \App\Models\Category::create([
-            'nama' => 'Wisata Kuliner',
+            'nama' => 'Kuliner',
             'user_id' => 1,
         ]);
         \App\Models\Category::create([
-            'nama' => 'Wisata Alam',
+            'nama' => 'Alam',
+            'user_id' => 1,
+        ]);
+        \App\Models\Category::create([
+            'nama' => 'Cafe',
+            'user_id' => 1,
+        ]);
+        \App\Models\Category::create([
+            'nama' => 'Hotel',
             'user_id' => 1,
         ]);
 
-        \App\Models\Destinasi::factory(10)->create();
+        // \App\Models\Destinasi::factory(10)->create();
     }
 }

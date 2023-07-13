@@ -16,7 +16,7 @@ class UlasanController extends Controller
         $this->authorize('admin');
         // show all ulasan
         return view('destinasi-show', [
-            'ulasans' => Ulasan::with('user')->latest()->paginate(5),
+            'ulasans' => Ulasan::with('user')->latest()->get(),
         ]);
     }
 

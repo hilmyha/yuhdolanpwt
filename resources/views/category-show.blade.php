@@ -4,7 +4,7 @@
             <div class="container absolute flex flex-col justify-between py-6">
                 <div class="w-full"></div>
                 <div class="w-full lg:w-1/2">
-                    <h1 class="font-playfair font-extrabold tracking-tight leading-none text-3xl md:text-6xl text-white mb-8">Destinasi Terbaru</h1>
+                    <h1 class="font-playfair font-extrabold tracking-tight leading-none text-3xl md:text-6xl text-white mb-8">{{ $title }}</h1>
                 </div>
                 <div class="w-full flex items-center gap-2">
                     
@@ -25,7 +25,7 @@
                                 <img class="brightness-50 w-full h-full object-cover group-hover:scale-125 group-hover:blur-sm transition duration-200" src="{{ asset('img/hero_2.jpg') }}" alt="">
                             </div>
                             <div class="p-4">
-                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">{{ $destinasi->category->nama }}</span>
+                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">{{ $destinasi->nama }}</span>
                                 <h4 class="mt-3 text-xl lg:text-2xl font-bold group-hover:text-primary transition duration-200">{{ $destinasi->nama }}</h4>
                                 <div class="flex items-center mt-4 text-sm text-slate-400">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -41,9 +41,9 @@
                     @endforeach
 
                 </div>
-                <div class="mt-8">
+                {{-- <div class="mt-8">
                     {{ $destinasis->links() }}
-                </div>
+                </div> --}}
             @else
                 <div class="text-red-500 flex flex-col gap-2 items-center py-12">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-12 h-12">

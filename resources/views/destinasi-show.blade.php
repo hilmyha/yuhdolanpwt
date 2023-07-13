@@ -106,7 +106,7 @@
                         </div>
                     @endforeach
                 @else
-                    <p class="text-red-500">Belum ada ulasan untuk postingan ini</p>
+                    <p class="text-red-500">Belum ada ulasan untuk destinasi ini.</p>
                 @endif
                 
             </div>

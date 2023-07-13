@@ -4,7 +4,7 @@
             <div class="container absolute flex flex-col justify-between py-6">
                 <div class="w-full"></div>
                 <div class="w-full lg:w-1/2">
-                    <h1 class="font-playfair font-extrabold tracking-tight leading-none text-3xl md:text-6xl text-white mb-8">Destinasi Terbaru</h1>
+                    <h1 class="font-playfair font-extrabold tracking-tight leading-none text-3xl md:text-6xl text-white mb-8">Category Terbaru</h1>
                 </div>
                 <div class="w-full flex items-center gap-2">
                     
@@ -16,25 +16,24 @@
     <div class="py-12">
         <div class="container flex flex-col gap-8">
             
-            @if ($destinasis->count())
+            @if ($categories->count())
                 <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                    @foreach ($destinasis as $destinasi)
-                    <a class="shadow-lg bg-white hover:shadow-2xl transition duration-200 group" href="/destinasi/{{ $destinasi->slug }}">
+                    @foreach ($categories as $category)
+                    <a class="shadow-lg bg-white hover:shadow-2xl transition duration-200 group" href="/category/{{ $category->id }}">
                         <div class="w-full">
-                            <div class="w-full h-[300px] overflow-hidden">
+                            {{-- <div class="w-full h-[300px] overflow-hidden">
                                 <img class="brightness-50 w-full h-full object-cover group-hover:scale-125 group-hover:blur-sm transition duration-200" src="{{ asset('img/hero_2.jpg') }}" alt="">
-                            </div>
+                            </div> --}}
                             <div class="p-4">
-                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">{{ $destinasi->category->nama }}</span>
-                                <h4 class="mt-3 text-xl lg:text-2xl font-bold group-hover:text-primary transition duration-200">{{ $destinasi->nama }}</h4>
-                                <div class="flex items-center mt-4 text-sm text-slate-400">
+                                <h4 class="mt-3 text-xl lg:text-2xl font-bold group-hover:text-primary transition duration-200">{{ $category->nama }}</h4>
+                                {{-- <div class="flex items-center mt-4 text-sm text-slate-400">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                         <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
                                     </svg>                                  
                                     
-                                    <p class="border-l-2 border-slate-400 ml-2 pl-2">{{ $destinasi->lokasi }}</p>
+                                    <p class="border-l-2 border-slate-400 ml-2 pl-2">{{ $category->lokasi }}</p>
                                 </div>
-                                <p class="mt-2 text-justify">{{ $destinasi->excerpt }}</p>
+                                <p class="mt-2 text-justify">{{ $category->excerpt }}</p> --}}
                             </div>
                         </div>
                     </a>
@@ -42,7 +41,7 @@
 
                 </div>
                 <div class="mt-8">
-                    {{ $destinasis->links() }}
+                    {{ $categories->links() }}
                 </div>
             @else
                 <div class="text-red-500 flex flex-col gap-2 items-center py-12">

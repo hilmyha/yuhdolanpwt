@@ -92,7 +92,7 @@
                     <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
                     <div class="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
                     <div class="rounded overflow-hidden w-[272px] h-[572px] bg-white">
-                        <img src="{{ asset('img/mockup_1.jpg') }}" class="w-[272px] h-[572px]" alt="">
+                        <img src="{{ asset('img/mockup_1.png') }}" class="w-[272px] h-[572px]" alt="">
                     </div>
                 </div>
                 <div class="mb-24 relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-xl h-[600px] w-[300px] shadow-xl">
@@ -102,7 +102,7 @@
                     <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
                     <div class="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
                     <div class="rounded overflow-hidden w-[272px] h-[572px] bg-white">
-                        <img src="{{ asset('img/mockup_2.jpg') }}" class="w-[272px] h-[572px]" alt="">
+                        <img src="{{ asset('img/mockup_2.png') }}" class="w-[272px] h-[572px]" alt="">
                     </div>
                 </div>
 

@@ -31,6 +31,11 @@
                     </x-nav-link>
                 </li>
                 <li>
+                    <x-nav-link href="{{ route('category') }}" :active="request()->routeIs('category')">
+                        Category
+                    </x-nav-link>
+                </li>
+                <li>
                     <a href="#" class="block py-2 text-gray-700 border-b text-center lg:text-start border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary">Blogs</a>
                 </li>
                 <li>

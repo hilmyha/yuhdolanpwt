@@ -25,7 +25,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100" id="header">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -41,6 +41,16 @@
             </main>
 
             @include('layouts.footer')
+        </div>
+
+
+        {{-- back to top button --}}
+        <div class="fixed flex bottom-0 right-0 mb-8 mr-8">
+            <a href="#header" class="bg-primary hover:bg-secondary transition text-white rounded-full p-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                </svg>
+            </a>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>

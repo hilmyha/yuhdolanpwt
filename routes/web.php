@@ -23,6 +23,10 @@ Route::get('/', function () {
 Route::get('/destinasi', [App\Http\Controllers\DestinasiController::class, 'index'])->name('destinasi');
 Route::get('/destinasi/{destinasi:slug}', [App\Http\Controllers\DestinasiController::class, 'show'])->name('destinasi-show');
 
+// category
+Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
+Route::get('/category/{category:id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category-show');
+
 // dashboard
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {
