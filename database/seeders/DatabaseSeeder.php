@@ -46,6 +46,6 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
         ]);
 
-        // \App\Models\Destinasi::factory(10)->create();
+        \App\Models\Destinasi::factory(10)->create();
     }
 }

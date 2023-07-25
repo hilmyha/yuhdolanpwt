@@ -41,7 +41,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/dashboard/category', App\Http\Controllers\Admin\CategoryController::class)->middleware('admin');
 
     // ulasan
+    Route::get('/dashboard/ulasan', [App\Http\Controllers\Admin\UlasanController::class, 'index'])->middleware('admin')->name('ulasan.index');
     Route::post('/tambah-ulasan/{destinasi:id}', [App\Http\Controllers\Admin\UlasanController::class, 'store']);
     Route::delete('/tambah-ulasan/{ulasan:id}', [App\Http\Controllers\Admin\UlasanController::class, 'destroy']);
+
+    // favorite
+    Route::get('/dashboard/favorite', [App\Http\Controllers\Admin\FavoriteController::class, 'index'])->middleware('admin')->name('favorite.index');
+    Route::post('/destinasi/{destinasi:id}/favorite', [App\Http\Controllers\Admin\FavoriteController::class, 'store']);
+    Route::delete('/destinasi/{destinasi:id}/unfavorite', [App\Http\Controllers\Admin\FavoriteController::class, 'destroy']);
 });
 

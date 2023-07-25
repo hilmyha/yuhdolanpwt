@@ -17,15 +17,46 @@
     <div class="py-12 container flex flex-col lg:flex-row gap-8">
         <div class="flex flex-col w-full gap-8">
             <div class="border flex flex-col gap-3 p-6 rounded shadow-lg bg-white">
-                <div class="flex items-center mb-3 text-sm text-slate-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                        <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                    </svg>                                  
-                    
-                    <p class="border-l-2 border-slate-400 ml-2 pl-2">{{ $destinasi->lokasi }}</p>
+                <div class="flex justify-between items-center mb-3 text-sm text-slate-600">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                        </svg>                                  
+                        
+                        <p class="border-l-2 border-slate-400 ml-2 pl-2">{{ $destinasi->lokasi }}</p>
+                    </div>
+                    <div class="flex">
+                        {{-- tambah favorite dan hapus --}}
+                        @if (Auth::check())
+
+                            @if ($favorites->count() == 0)
+                                <form action="/destinasi/{{ $destinasi->id }}/favorite" method="post">
+                                    @csrf
+                                    <button type="submit" class="font-lg text-gray-500 hover:text-gray-600 p-2 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                            <path fill-rule="evenodd" d="M10 18l-1.714-1.143C3.429 12.857 0 9.143 0 5.429 0 2.429 2.429 0 5.429 0 7.143 0 8.857.857 10 2.286 11.143.857 12.857 0 14.571 0 17.571 0 20 2.429 20 5.429c0 3.714-3.429 7.428-8.286 11.429L10 18z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </form>
+                            @else
+                                <form action="/destinasi/{{ $destinasi->id }}/unfavorite" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="font-lg text-red-500 hover:text-red-600 p-2 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                            <path fill-rule="evenodd" d="M10 18l-1.714-1.143C3.429 12.857 0 9.143 0 5.429 0 2.429 2.429 0 5.429 0 7.143 0 8.857.857 10 2.286 11.143.857 12.857 0 14.571 0 17.571 0 20 2.429 20 5.429c0 3.714-3.429 7.428-8.286 11.429L10 18z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </form>
+                            @endif
+                            
+                        @endif
+                    </div>
                 </div>
                 <p class="text-justify text-gray-500">{!! $destinasi->deskripsi !!}</p>
     
+                
+
                 <div class="">
                     <p class="mb-3 font-bold text-xl text-gray-500">Maps</p>
                     <hr>

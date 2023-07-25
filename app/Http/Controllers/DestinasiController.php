@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destinasi;
+use App\Models\Favorite;
 use App\Models\Ulasan;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,9 @@ class DestinasiController extends Controller
             'title' => 'Detail Destinasi',
             'destinasi' => $destinasi,
             // show ulasan
-            'ulasans' => Ulasan::with('user')->where('destinasi_id', $destinasi->id)->latest()->paginate(5)
+            'ulasans' => Ulasan::with('user')->where('destinasi_id', $destinasi->id)->latest()->paginate(5),
+            // show favorite
+            'favorites' => Favorite::with('user')->where('destinasi_id', $destinasi->id)->latest()->get()
         ]);
     }
 

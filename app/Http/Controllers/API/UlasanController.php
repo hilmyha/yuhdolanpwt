@@ -22,26 +22,37 @@ class UlasanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $ulasan = $request->validate([
-            'judul' => 'required|string',
-            'isi' => 'required|string',
-            'tanggal_berkunjung' => 'required|string',
-            'destinasi_id' => 'required|integer',
-        ]);
+        $destinasi = \App\Models\Destinasi::find($id);
 
-        // tanggal_berkunjung to date
-        $ulasan['tanggal_berkunjung'] = date('Y-m-d', strtotime($ulasan['tanggal_berkunjung']));
+        if ($destinasi) {
+            $ulasan = $request->validate([
+                'judul' => 'required|string',
+                'isi' => 'required|string',
+                'tanggal_berkunjung' => 'required|string',
+            ]);
 
-        $ulasan['user_id'] = auth()->user()->id;
+            // tanggal_berkunjung to date
+            $ulasan['tanggal_berkunjung'] = date('Y-m-d', strtotime($ulasan['tanggal_berkunjung']));
 
-        Ulasan::create($ulasan);
+            $ulasan['destinasi_id'] = $destinasi->id;
+
+            $ulasan['user_id'] = auth()->user()->id;
+
+            Ulasan::create($ulasan);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Ulasan berhasil ditambahkan'
+            ]);
+        }
 
         return response()->json([
-            'status' => 'success',
-            'data' => $ulasan
+            'status' => 'error',
+            'message' => 'Destinasi tidak ditemukan'
         ]);
+        
     }
 
     /**
@@ -65,6 +76,11 @@ class UlasanController extends Controller
      */
     public function destroy(Ulasan $ulasan)
     {
-        //
+        Ulasan::destroy($ulasan->id);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Ulasan berhasil dihapus'
+        ]);
     }
 }
