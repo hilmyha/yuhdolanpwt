@@ -27,30 +27,36 @@
                     </div>
                     <div class="flex">
                         {{-- tambah favorite dan hapus --}}
-                        @if (Auth::check())
-
-                            @if ($favorites->count() == 0)
-                                <form action="/destinasi/{{ $destinasi->id }}/favorite" method="post">
-                                    @csrf
-                                    <button type="submit" class="font-lg text-gray-500 hover:text-gray-600 p-2 rounded-lg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                            <path fill-rule="evenodd" d="M10 18l-1.714-1.143C3.429 12.857 0 9.143 0 5.429 0 2.429 2.429 0 5.429 0 7.143 0 8.857.857 10 2.286 11.143.857 12.857 0 14.571 0 17.571 0 20 2.429 20 5.429c0 3.714-3.429 7.428-8.286 11.429L10 18z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </form>
-                            @else
-                                <form action="/destinasi/{{ $destinasi->id }}/unfavorite" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="font-lg text-red-500 hover:text-red-600 p-2 rounded-lg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                            <path fill-rule="evenodd" d="M10 18l-1.714-1.143C3.429 12.857 0 9.143 0 5.429 0 2.429 2.429 0 5.429 0 7.143 0 8.857.857 10 2.286 11.143.857 12.857 0 14.571 0 17.571 0 20 2.429 20 5.429c0 3.714-3.429 7.428-8.286 11.429L10 18z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </form>
-                            @endif
+                        @if ($favorites->count())
+                            @foreach ($favorites as $item)
+                                @if (Auth::user()->id != $item->user_id && $item->count())
+                                    <form action="/destinasi/{{ $destinasi->id }}/favorite" method="post">
+                                        @csrf
+                                        <button type="submit" class="font-lg text-gray-500 hover:text-gray-600 p-2 rounded-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                                <path fill-rule="evenodd" d="M10 18l-1.714-1.143C3.429 12.857 0 9.143 0 5.429 0 2.429 2.429 0 5.429 0 7.143 0 8.857.857 10 2.286 11.143.857 12.857 0 14.571 0 17.571 0 20 2.429 20 5.429c0 3.714-3.429 7.428-8.286 11.429L10 18z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                @else
+                                    <form action="/destinasi/{{ $destinasi->id }}/unfavorite" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="font-lg text-red-500 hover:text-red-600 p-2 rounded-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                                <path fill-rule="evenodd" d="M10 18l-1.714-1.143C3.429 12.857 0 9.143 0 5.429 0 2.429 2.429 0 5.429 0 7.143 0 8.857.857 10 2.286 11.143.857 12.857 0 14.571 0 17.571 0 20 2.429 20 5.429c0 3.714-3.429 7.428-8.286 11.429L10 18z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                @endif
                             
+                            @endforeach
                         @endif
+                            @if (! $favorites->count())
+                                
+                            @else
+                                
+                            @endif
                     </div>
                 </div>
                 <p class="text-justify text-gray-500">{!! $destinasi->deskripsi !!}</p>

@@ -41,11 +41,7 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Cafe',
             'user_id' => 1,
         ]);
-        \App\Models\Category::create([
-            'nama' => 'Hotel',
-            'user_id' => 1,
-        ]);
 
-        \App\Models\Destinasi::factory(10)->create();
+        // \App\Models\Destinasi::factory(10)->create();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Destinasi;
 use App\Models\Favorite;
 use Illuminate\Http\Request;
 
@@ -11,13 +12,11 @@ class FavoriteController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Destinasi $destinasi)
     {
-        $this->authorize('admin');
-
         return view('favorite.index', [
             // relations with user and destinasi
-            'favorites' => Favorite::with('user', 'destinasi')->latest()->get(),
+            'favorites' => Favorite::where('user_id', auth()->user()->id)->with('user', 'destinasi')->latest()->get(),
         ]);
     }
 
@@ -26,7 +25,9 @@ class FavoriteController extends Controller
      */
     public function create()
     {
-        return view('destinasi-show'); 
+        return view('destinasi-show',[
+            'favorites' => Favorite::where('user_id', auth()->user()->id)->with('user', 'destinasi')->latest()->get(),
+        ]); 
     }
 
     /**
